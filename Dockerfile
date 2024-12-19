@@ -5,8 +5,8 @@ FROM amazonlinux:2
 LABEL maintainer="sibisidhu4242@gmail.com"
 
 # Update the package repository and install common tools
-RUN yum -y update --setopt=amzn2-core.skip_if_unavailable=true && \
-    yum -y install \
+RUN yum --disablerepo=amzn2-core -y update
+  yum -y install \
     git \
     curl \
     vim \
