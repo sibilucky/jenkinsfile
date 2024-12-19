@@ -20,7 +20,8 @@ node {
         // Stage for building the Docker image
         stage('Build Docker Image') {
             echo 'Building the Docker image...'
-            docker build -t amazon-linux:latest .
+            sh "docker build -t amazon-linux:latest ."
+
 
         }
 
