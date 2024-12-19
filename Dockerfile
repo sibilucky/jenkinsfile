@@ -16,11 +16,11 @@ RUN yum update -y && \
 WORKDIR /app
 
 # Copy your application code to the container
-# (Assuming you have a file called 'app.jar' or similar in your local directory)
+# Make sure app.jar exists in the correct location (or update the path if needed)
 COPY app.jar /app/
 
 # Expose the port that your application will run on (if applicable)
-EXPOSE 7070
+EXPOSE 70
 
 # Command to run the application (for example, a Java app)
 CMD ["java", "-jar", "app.jar"]
