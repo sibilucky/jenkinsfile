@@ -17,12 +17,11 @@ node {
             )
         }
 
-        stage('Verify Files') {
-        echo 'Verifying the workspace contents...'
-          sh 'ls -al'  // List all files in the current workspace
-      }
-
-        // Stage for building the Docker image
+       stage('Verify app.jar') {
+        echo 'Checking if app.jar exists...'
+           sh 'find . -name "app.jar"'
+        }
+ // Stage for building the Docker image
         stage('Build Docker Image') {
             echo 'Building the Docker image...'
             // Make sure you are in the correct directory if Dockerfile is not in root
