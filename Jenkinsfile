@@ -27,7 +27,7 @@ node {
         // Stage for deploying the Docker container
         stage('Deploy') {
             echo 'Deploying the project...'
-            sh "docker run -d --name amazon-linux-container -p 70:70 amazon-linux:latest"
+            sh "docker run -d --name amazon-linux-container -p 7070:7070 amazon-linux:latest"
 
             // Optional: Push the image to Docker registry (if needed)
             echo 'Pushing Docker image to registry...'
