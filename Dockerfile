@@ -17,10 +17,10 @@ WORKDIR /app
 
 # Copy your application code to the container
 # Make sure app.jar exists in the correct location (or update the path if needed)
-COPY build/app.jar /app/
+COPY app.jar /app/
 
 # Expose the port that your application will run on (if applicable)
-EXPOSE 70
+EXPOSE 7070
 
 # Command to run the application (for example, a Java app)
 CMD ["java", "-jar", "app.jar"]
