@@ -17,6 +17,11 @@ node {
             )
         }
 
+        stage('Verify Files') {
+        echo 'Verifying the workspace contents...'
+          sh 'ls -al'  // List all files in the current workspace
+      }
+
         // Stage for building the Docker image
         stage('Build Docker Image') {
             echo 'Building the Docker image...'
