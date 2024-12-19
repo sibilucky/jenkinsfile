@@ -5,7 +5,7 @@ FROM amazonlinux:2
 LABEL maintainer="sibisidhu4242@gmail.com"
 
 # Update the package repository and install common tools
-RUN yum -y update --disablerepo=amzn2-core && \
+RUN yum -y update && \
     yum -y install \
     git \
     curl \
@@ -15,7 +15,6 @@ RUN yum -y update --disablerepo=amzn2-core && \
     gcc \
     make \
     java-11-amazon-corretto
-
 
 # Clean up the package manager cache to reduce image size
 RUN yum clean all
