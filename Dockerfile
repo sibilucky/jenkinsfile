@@ -5,7 +5,7 @@ FROM amazonlinux:2
 LABEL maintainer="sibisidhu4242@gmail.com"
 
 # Update the package repository and install common tools
-RUN yum -y update && \
+RUN yum -y update --setopt=amzn2-core.skip_if_unavailable=true && \
     yum -y install \
     git \
     curl \
@@ -30,3 +30,4 @@ EXPOSE 70
 
 # Set the command to run when the container starts
 CMD ["bash"]
+
