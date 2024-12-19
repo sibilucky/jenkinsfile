@@ -1,33 +1,27 @@
-# Use the official Amazon Linux image as the base image
+# Use the official Amazon Linux base image
 FROM amazonlinux:2
 
-# Set the maintainer label
-LABEL maintainer="sibisidhu4242@gmail.com"
+# Set the maintainer label (optional)
+LABEL maintainer="yourname@example.com"
 
-# Update the package repository and install common tools
-RUN yum --disablerepo=amzn2-core -y update
-  yum -y install \
-    git \
-    curl \
-    vim \
+# Update the system and install some basic utilities
+RUN yum update -y && \
+    yum install -y \
     wget \
-    python3 \
-    gcc \
-    make \
-    java-11-amazon-corretto
+    git \
+    java-1.8.0-openjdk-devel && \
+    yum clean all
 
-# Clean up the package manager cache to reduce image size
-RUN yum clean all
-
-# Set the working directory in the container
+# Set up a working directory
 WORKDIR /app
 
-# Copy your application code (if you have it) into the container
-# COPY ./app /app
+# Copy your application code to the container
+# (Assuming you have a file called 'app.jar' or similar in your local directory)
+COPY app.jar /app/
 
-# Expose a port (for example, port 70)
-EXPOSE 70
+# Expose the port that your application will run on (if applicable)
+EXPOSE 7070
 
-# Set the command to run when the container starts
-CMD ["bash"]
+# Command to run the application (for example, a Java app)
+CMD ["java", "-jar", "app.jar"]
 
